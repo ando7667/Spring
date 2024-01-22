@@ -1,4 +1,4 @@
-package org.ignatov.springhw2;
+package org.ignatov.hw2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

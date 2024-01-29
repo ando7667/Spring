@@ -35,4 +35,17 @@ public class BookRepository {
       .orElse(null);
   }
 
+  public void createBook(Book book) {
+    books.add(book);
+  }
+
+
+  public void deleteBook(long id) {
+    books.removeIf(book -> book.getId() == id);
+  }
+
+  public List<Book> getAllBooks() {
+    return List.copyOf(books);
+  }
+
 }

@@ -33,7 +33,7 @@ public class UIController {
         return "booksTable";
     }
 
-    @GetMapping("/ui/reader")
+    @GetMapping("/ui/readers")
     public String getAllReaders(Model model) {
         List<Reader> readers = readerRepository.getReaders();
         model.addAttribute("readers", readers);

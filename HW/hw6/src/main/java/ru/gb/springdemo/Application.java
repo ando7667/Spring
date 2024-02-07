@@ -1,0 +1,29 @@
+package ru.gb.springdemo;
+/* **********************************************************************
+ * Домашнее задание:
+ * 1. Подключить базу данных к проекту "библиотека", который разрабатывали на прошлых уроках.
+ * 1.1 Подключить spring-boot-starter-data-jpa (и необходимый драйвер) и указать параметры соединения в application.yml
+ * 1.2 Для книги, читателя и факта выдачи описать JPA-сущности
+ * 1.3 Заменить самописные репозитории на JPA-репозитории
+ *
+ * Замечание: базу данных можно использовать любую (h2, mysql, postgres).
+ *
+ ********************************************************************** */
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import ru.gb.springdemo.service.AppProperties;
+
+@SpringBootApplication
+@EnableConfigurationProperties(AppProperties.class)
+public class Application {
+
+	public static void main(String[] args) {
+
+		SpringApplication.run(Application.class, args);
+		System.out.println("Сервер запущен и слушает порт 8190");
+
+	}
+
+}

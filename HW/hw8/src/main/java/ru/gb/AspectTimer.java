@@ -15,9 +15,9 @@ public class AspectTimer {
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
         Object result = joinPoint.proceed();
-        long elapsedTime = System.currentTimeMillis() - start;
+        double elapsedTime = (double) (System.currentTimeMillis() - start) /1000;
         System.out.println(joinPoint.getSignature().getDeclaringTypeName() + " - " +
-                joinPoint.getSignature().getName() + " # " + elapsedTime/1000);
+                joinPoint.getSignature().getName() + " # " + elapsedTime);
         return result;
     }
 }

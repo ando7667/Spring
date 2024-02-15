@@ -27,31 +27,4 @@ public class DemoAspect {
     log.info("before sign = {}, args = {}", joinPoint.getSignature(), joinPoint.getArgs()[0]);
   }
 
-//  @Before("myServiceBeanMethodsPointcut()")
-//  private void beforeMyServiceBean(JoinPoint joinPoint) {
-//    Signature signature = joinPoint.getSignature();
-//    log.info("signature: {}", signature);
-//    log.info("Argument name: {}", joinPoint.getArgs()[0]);
-//  }
-//
-//  @Around("myServiceBeanMethodsPointcut()")
-//  public Object aroundMyServiceBeanMethodsPointcut(ProceedingJoinPoint joinPoint) {
-//    try {
-//      Object proceed = joinPoint.proceed();
-//      return proceed;
-//    } catch (Throwable e) {
-//      return "exception was thrown: [" + e.getMessage() + "]";
-//    }
-//  }
-//
-//  @AfterReturning(value = "myServiceBeanMethodsPointcut()", returning = "result")
-//  public void afterReturningMyServiceBean(JoinPoint joinPoint, Object result) {
-//    log.info("Result: {}", result);
-//  }
-//
-//  @AfterThrowing(value = "myServiceBeanMethodsPointcut()", throwing = "e")
-//  public void afterThrowingMyServiceBean(Throwable e) {
-//    log.error("Exception!!! {} - {}", e.getClass(), e.getMessage());
-//  }
-
 }

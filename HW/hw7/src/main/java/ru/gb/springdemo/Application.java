@@ -11,9 +11,12 @@ package ru.gb.springdemo;
  *
  ********************************************************************** */
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import ru.gb.springdemo.service.AppProperties;
 
 @SpringBootApplication
@@ -26,5 +29,11 @@ public class Application {
 		System.out.println("Сервер запущен и слушает порт 8190");
 
 	}
+//
+//  Внедряем кодирование пароля
+//	@Autowired
+//	public void configureAUthManagerBuilder(AuthenticationManagerBuilder builder, UserDetailsService service) throws Exception {
+//		builder.userDetailsService(service);
+//	}
 
 }

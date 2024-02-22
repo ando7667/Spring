@@ -10,27 +10,26 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public class Book {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Schema(name = "Идентификатор книги")
-  private Long id;
+  private long id;
 
   @Column(name = "name")
   @Schema(name = "Название книги")
   private String name;
 
+  @Column(name = "author")
+  @Schema(name = "Автор книги")
+  private String author;
+
+  @Column(name = "year")
+  @Schema(name = "Год издания книги")
+  private String year;
 
   public Book() {
   }
-
-  public Book(String name) {
+  public Book(String name, String author, String year) {
     this.name = name;
   }
-
-  public Book(Long id, String namer) {
-    this.id = id;
-    this.name = name;
-
-  }
-
 
 }

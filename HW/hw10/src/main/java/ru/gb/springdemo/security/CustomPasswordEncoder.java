@@ -1,5 +1,5 @@
 package ru.gb.springdemo.security;
-/*
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -17,4 +17,3 @@ public class CustomPasswordEncoder  implements PasswordEncoder {
         return encode(rawPassword).equals(encodedPassword);
     }
 }
-*/

@@ -12,7 +12,7 @@ public class Reader {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Schema(name = "Идентификатор читателя")
-  private Long id;
+  private long id;
 
   @Column(name = "name")
   @Schema(name = "Имя читателя")

@@ -1,5 +1,5 @@
 package ru.gb.springdemo.security;
-/*
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,4 +27,3 @@ public class JdbcUserDetailsService implements UserDetailsService {
     }
 
 }
-*/

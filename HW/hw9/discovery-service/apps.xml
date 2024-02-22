@@ -1,0 +1,78 @@
+<applications>
+  <versions__delta>1</versions__delta>
+  <apps__hashcode>UP_2_</apps__hashcode>
+  <application>
+    <name>ISSUE-SERVICE</name>
+    <instance>
+      <instanceId>host.docker.internal:issue-service:8290</instanceId>
+      <hostName>host.docker.internal</hostName>
+      <app>ISSUE-SERVICE</app>
+      <ipAddr>192.168.70.222</ipAddr>
+      <status>UP</status>
+      <overriddenstatus>UNKNOWN</overriddenstatus>
+      <port enabled="true">8290</port>
+      <securePort enabled="false">443</securePort>
+      <countryId>1</countryId>
+      <dataCenterInfo class="com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo">
+        <name>MyOwn</name>
+      </dataCenterInfo>
+      <leaseInfo>
+        <renewalIntervalInSecs>30</renewalIntervalInSecs>
+        <durationInSecs>90</durationInSecs>
+        <registrationTimestamp>1708363183243</registrationTimestamp>
+        <lastRenewalTimestamp>1708363183243</lastRenewalTimestamp>
+        <evictionTimestamp>0</evictionTimestamp>
+        <serviceUpTimestamp>1708363182724</serviceUpTimestamp>
+      </leaseInfo>
+      <metadata>
+        <management.port>8290</management.port>
+      </metadata>
+      <homePageUrl>http://host.docker.internal:8290/</homePageUrl>
+      <statusPageUrl>http://host.docker.internal:8290/actuator/info</statusPageUrl>
+      <healthCheckUrl>http://host.docker.internal:8290/actuator/health</healthCheckUrl>
+      <vipAddress>issue-service</vipAddress>
+      <secureVipAddress>issue-service</secureVipAddress>
+      <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>
+      <lastUpdatedTimestamp>1708363183243</lastUpdatedTimestamp>
+      <lastDirtyTimestamp>1708363182679</lastDirtyTimestamp>
+      <actionType>ADDED</actionType>
+    </instance>
+  </application>
+  <application>
+    <name>BOOK-SERVICE</name>
+    <instance>
+      <instanceId>host.docker.internal:book-service:8190</instanceId>
+      <hostName>host.docker.internal</hostName>
+      <app>BOOK-SERVICE</app>
+      <ipAddr>192.168.70.222</ipAddr>
+      <status>UP</status>
+      <overriddenstatus>UNKNOWN</overriddenstatus>
+      <port enabled="true">8190</port>
+      <securePort enabled="false">443</securePort>
+      <countryId>1</countryId>
+      <dataCenterInfo class="com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo">
+        <name>MyOwn</name>
+      </dataCenterInfo>
+      <leaseInfo>
+        <renewalIntervalInSecs>30</renewalIntervalInSecs>
+        <durationInSecs>90</durationInSecs>
+        <registrationTimestamp>1708362408465</registrationTimestamp>
+        <lastRenewalTimestamp>1708363279213</lastRenewalTimestamp>
+        <evictionTimestamp>0</evictionTimestamp>
+        <serviceUpTimestamp>1708362407944</serviceUpTimestamp>
+      </leaseInfo>
+      <metadata>
+        <management.port>8190</management.port>
+      </metadata>
+      <homePageUrl>http://host.docker.internal:8190/</homePageUrl>
+      <statusPageUrl>http://host.docker.internal:8190/actuator/info</statusPageUrl>
+      <healthCheckUrl>http://host.docker.internal:8190/actuator/health</healthCheckUrl>
+      <vipAddress>book-service</vipAddress>
+      <secureVipAddress>book-service</secureVipAddress>
+      <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>
+      <lastUpdatedTimestamp>1708362408466</lastUpdatedTimestamp>
+      <lastDirtyTimestamp>1708362407898</lastDirtyTimestamp>
+      <actionType>ADDED</actionType>
+    </instance>
+  </application>
+</applications>

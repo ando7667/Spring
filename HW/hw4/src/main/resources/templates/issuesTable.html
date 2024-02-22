@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Книги на руках у читателей</title>
+</head>
+<style>
+table {
+  width: auto;
+  border-collapse: collapse;
+  border: 1px solid aquamarine;
+}
+table th, table td {
+  padding: 0 40px;
+}
+table tr {
+  background: #d9fff2;
+}
+table th {
+  background: aquamarine;
+}
+</style>
+<body>
+<h1>Список выданных книг:</h1>
+<table>
+  <tr>
+    <th>Номер</th>
+    <th>Наименование книги</th>
+    <th>Имя читателя</th>
+    <th>Дата выдачи</th>
+    <th>Дата возврата</th>
+  </tr>
+  <tr th:each="issue: ${issues}">
+    <td th:text="${issue.getId()}"></td>
+    <td th:text="${issue.bookName()}"></td>
+    <td th:text="${issue.readerName()}"></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

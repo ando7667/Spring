@@ -18,18 +18,16 @@ public class Book {
   @Schema(name = "Название книги")
   private String name;
 
-  @Column(name = "author")
-  @Schema(name = "Автор книги")
-  private String author;
-
-  @Column(name = "year")
-  @Schema(name = "Год издания книги")
-  private String year;
-
   public Book() {
   }
-  public Book(String name, String author, String year) {
+
+  public Book(String name) {
     this.name = name;
   }
 
+  public Book(Long id, String name) {
+    this.id = id;
+    this.name = name;
+
+  }
 }

@@ -20,6 +20,7 @@ public class Reader {
 
   public Reader() {
   }
+
   public Reader(String name) {
     this.name = name;
   }

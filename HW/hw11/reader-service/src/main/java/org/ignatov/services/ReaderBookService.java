@@ -26,7 +26,7 @@ public class ReaderBookService {
                     .bodyToMono(Book.class)
                     .block();
         } catch (Exception e) {
-            throw new RuntimeException("Соединение с сервером книг не установлено");
+            throw new RuntimeException("Соединение с сервисом книг не установлено");
         }
 
     }

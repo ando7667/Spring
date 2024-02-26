@@ -15,12 +15,12 @@ public class LoggingExecutionTime {
 
     private final LoggingExecutionTimeProperties properties;
 
-    @Pointcut("within(@ru.gb.aspects_annotation.Time *)")
+    @Pointcut("within(@org.ignatov.aspect.Time *)")
     public void beansAnnotatedWith() {
 
     }
 
-    @Pointcut("@annotation(ru.gb.aspects_annotation.Time)")
+    @Pointcut("@annotation(org.ignatov.aspect.Time)")
     public void methodsAnnotatedWith() {
 
     }

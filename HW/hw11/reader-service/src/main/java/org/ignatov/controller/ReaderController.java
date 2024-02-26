@@ -42,7 +42,7 @@ public class ReaderController {
                     })
             }
     )
-
+    // GET /reader - получить список читателей
     @GetMapping()
     public ResponseEntity<List<Reader>> getAllReaders() {
         final List<Reader> readers;
@@ -67,24 +67,69 @@ public class ReaderController {
                     })
             }
     )
-    // GET /reader/{id} - получить описание книги
+    // GET /reader/{id} - получить читателя по ид
     @GetMapping("/{id}")
-    public Reader getReader(@PathVariable long id) {
-        return readerRepository.findById(id).get();
+    public ResponseEntity<Reader> getReader(@PathVariable long id) {
+        final Reader reader;
+        try {
+            reader = readerService.getReaderById(id);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(reader);
     }
 
-    // DELETE /reader/{id} - удалить книгу
+    @Operation(
+            summary = "Удаление читателя",
+            description = "Удаление читателя по ид",
+            parameters = {
+                    @Parameter(name = "id", description = "Ид читателя")
+            },
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Читатель удален", content = {
+                            @Content(mediaType = "application/json", schema =
+                            @Schema(implementation = Reader.class)
+                            )
+                    }),
+                    @ApiResponse(responseCode = "404", description = "Читатель с таким ид не найден", content = {
+                            @Content(mediaType = "*/*", schema = @Schema(implementation = String.class))
+                    })
+            }
+    )
+    // DELETE /reader/{id} - удалить читателя по ид
     @DeleteMapping("/{id}")
-    @Operation(summary = "Удалить читателя", description = "Удаление читателя по его ид")
-    public void deleteReader(@PathVariable long id) {
-        readerRepository.deleteById(id);
+    public ResponseEntity<Reader> deleteReader(@PathVariable long id) {
+        final Reader reader;
+        try {
+            reader = readerService.deleteReaderById(id);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(reader);
     }
 
-    //  POST /reader - создать книгу
+    @Operation(
+            summary = "Добавить читателя",
+            description = "Добовление читателя в базу",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "Читатель добавлен в базу", content = {
+                            @Content(mediaType = "application/json", schema =
+                                @Schema(implementation = Reader.class))
+                    }),
+                    @ApiResponse(responseCode = "405", description = "Не удалось добавить читателя в базу", content = {
+                            @Content(mediaType = "*/*", schema = @Schema(implementation = String.class))
+                    })
+            }
+    )
+    //  POST /reader - добавить читателя
     @PostMapping
-    @Operation(summary = "Создать читателя", description = "Создаем читателя")
-    public void createReader(@RequestBody Reader reader) {
-        readerRepository.save(reader);
+    public ResponseEntity<Reader> createReader(@RequestBody Reader reader) {
 
+        try {
+            reader = readerService.addNewReader(reader);
+        } catch (NoSuchElementException e) {
+            throw new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED, e.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(reader);
     }
 }

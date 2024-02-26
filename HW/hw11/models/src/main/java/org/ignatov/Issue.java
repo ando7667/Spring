@@ -6,9 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-/**
- * Запись о факте выдачи книги (в БД)
- */
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -43,12 +41,12 @@ public class Issue {
   }
 
   public Issue fromIssue(IssueDataTemplate issueDTemplate) {
-    Issue issuance = new Issue();
-    issuance.setId(issueDTemplate.getId());
-    issuance.setBookId(issueDTemplate.getBook().getId());
-    issuance.setReaderId(issueDTemplate.getReader().getId());
-    issuance.setTimeIssue(issueDTemplate.getTimeIssue());
-    return issuance;
+    Issue issue = new Issue();
+    issue.setId(issueDTemplate.getId());
+    issue.setBookId(issueDTemplate.getBook().getId());
+    issue.setReaderId(issueDTemplate.getReader().getId());
+    issue.setTimeIssue(issueDTemplate.getTimeIssue());
+    return issue;
   }
 
 }

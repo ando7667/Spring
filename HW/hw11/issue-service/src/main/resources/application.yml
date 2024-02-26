@@ -1,5 +1,5 @@
 server:
-  port: 8210
+  port: 8230
   error:
     include-message: always
 spring:
@@ -12,7 +12,7 @@ spring:
       ddl-auto: update
     show-sql: true
   application:
-    name: reader-service
+    name: issue-service
 eureka:
   client:
     serviceUrl:
@@ -20,3 +20,9 @@ eureka:
   instance:
     prefer-ip-address: true
     status-page-url-path: ${spring.cloud.client.hostname}
+application:
+  reader:
+    max-allowed-books: 10
+logging:
+  time:
+    log-level: info

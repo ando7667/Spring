@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor(force = true)
+@NoArgsConstructor
 @AllArgsConstructor
 public class IssueDataTemplate {
-    private final long id;
-    private final Book book;
-    private final Reader reader;
-    private final LocalDateTime timeIssue;
+    private long id;
+    private Book book;
+    private Reader reader;
+    private LocalDateTime timeIssue;
 }

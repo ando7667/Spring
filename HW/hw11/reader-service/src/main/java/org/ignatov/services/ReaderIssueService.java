@@ -16,15 +16,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @RequiredArgsConstructor
-public class ReaderIssuesService {
+public class ReaderIssueService {
     private final WebClient webClient = WebClient.builder().build();
     private final EurekaClient eurekaClient;
     private final ReaderBookService readerBookService;
     private final ReaderService readerService;
 
 
-    private String getIssuanceServiceIp() {
-        Application application = eurekaClient.getApplication("ISSUANCE-SERVICE");
+    private String getIssueServiceIp() {
+        Application application = eurekaClient.getApplication("ISSUE-SERVICE");
         List<InstanceInfo> instanceInfoList = application.getInstances();
         int indexInstance = ThreadLocalRandom.current().nextInt(instanceInfoList.size());
         InstanceInfo randomInstanceInfo = instanceInfoList.get(indexInstance);
@@ -32,30 +32,30 @@ public class ReaderIssuesService {
     }
 
 
-    public List<IssueDataTemplate> issuanceListByIdReader(long id) {
+    public List<IssueDataTemplate> issueListByIdReader(long id) {
         List<IssueDataTemplate> list;
         try {
             list = webClient.get()
-                    .uri(getIssuanceServiceIp() + "/issuance/reader/" + id)
+                    .uri(getIssueServiceIp() + "/issue/reader/" + id)
                     .retrieve()
                     .bodyToFlux(IssueDataTemplate.class)
                     .collectList()
                     .block();
         } catch (WebClientResponseException e) {
-            throw new NoSuchElementException("Читателю с ID = " + id + " книги не выдавались");
+            throw new NoSuchElementException("У читателя с id:" + id + " нет книг на руках");
         } catch (Exception e) {
-            throw new RuntimeException("Соединение с сервером выдачи книг не установлено");
+            throw new RuntimeException("Соединение с сервисом выдачи книг не установлено");
         }
         return list;
     }
 
 
-    public IssueDataTemplate createIssuanceDTO(Issue issue) {
+    public IssueDataTemplate createIssueDataTemplate(Issue issue) {
         IssueDataTemplate issueTransform = new IssueDataTemplate();
-        issueTransform.s(issue.getId());
+        issueTransform.setId(issue.getId());
         issueTransform.setBook(readerBookService.getBookByIdInApi(issue.getBookId()));
         issueTransform.setReader(readerService.getReaderById(issue.getReaderId()));
-        issueTransform.setIssuanceAt(issue.getIssuance_at());
+        issueTransform.setTimeIssue(issue.getTimeIssue());
         return issueTransform;
     }
 }
